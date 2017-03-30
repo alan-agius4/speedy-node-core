@@ -17,11 +17,11 @@ export namespace args {
 			return process.argv.slice(2);
 		}
 
-		const parsedArgv = toDictionary(process.argv);
-		const parsedConfigArgv = toDictionary(JSON.parse(process.env.npm_config_argv).cooked);
+		const parsedArgv = parse(process.argv);
+		const parsedConfigArgv = parse(JSON.parse(process.env.npm_config_argv).cooked);
 		const mergedArgv = { ...parsedArgv, ...parsedConfigArgv };
 		const tranformedArgs = _.flatten(_.get<string[]>(parsedArgv, "_"));
-		return [...tranformedArgs, ...parse(mergedArgv)];
+		return [...tranformedArgs, ...toArray(mergedArgv)];
 	}
 
 	/**
@@ -41,7 +41,7 @@ export namespace args {
 	 * @param {Dictionary<any>} value dictionary/object to convert.
 	 * @returns {string[]} converted parameter as args.
 	 */
-	export function parse(value: Dictionary<any>): string[] {
+	export function toArray(value: Dictionary<any>): string[] {
 		const args: string[] = [];
 
 		_.forEach(value, (val, key) => {
@@ -78,7 +78,7 @@ export namespace args {
 	 * @param {string[]} argv
 	 * @returns {Dictionary<any>}
 	 */
-	export function toDictionary(argv: string[]): Dictionary<any> {
+	export function parse(argv: string[]): Dictionary<any> {
 		const parsedArgv: Dictionary<any> = {
 			_: []
 		};

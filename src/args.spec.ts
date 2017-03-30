@@ -36,13 +36,13 @@ describe("argsSpec", () => {
 		});
 
 		it("should merge and override process.env.npm_config_argv with process.args values", () => {
-			const argv = args.toDictionary(args.mergedConfigArgsAndProcessArgv());
+			const argv = args.parse(args.mergedConfigArgsAndProcessArgv());
 			expect(argv.config).toBe("config.txt");
 			expect(argv.debug).toBe(true);
 		});
 
 		it("should return 'files' argument as array", () => {
-			const argv = args.toDictionary(args.mergedConfigArgsAndProcessArgv());
+			const argv = args.parse(args.mergedConfigArgsAndProcessArgv());
 			expect(argv.files).toEqual([
 				"file-1.txt",
 				"file-2.txt"
@@ -50,24 +50,24 @@ describe("argsSpec", () => {
 		});
 	});
 
-	describe(args.toDictionary.name, () => {
+	describe(args.parse.name, () => {
 		it("should parse 'Args' and convert them to a dictionary", () => {
-			const parsedArgs = args.toDictionary(["--debug", "--config", "config-1.txt", "config-2.txt", "--help", "false"]);
+			const parsedArgs = args.parse(["--debug", "--config", "config-1.txt", "config-2.txt", "--help", "false"]);
 			expect(parsedArgs.help).toBe(false);
 			expect(parsedArgs.debug).toBe(true);
 			expect(parsedArgs.config).toEqual(["config-1.txt", "config-2.txt"]);
 		});
 
 		it("should parse args with equals as key/value pair", () => {
-			const parsedArgs = args.toDictionary(["--debug=true", "--help=false"]);
+			const parsedArgs = args.parse(["--debug=true", "--help=false"]);
 			expect(parsedArgs.help).toBe(false);
 			expect(parsedArgs.debug).toBe(true);
 		});
 	});
 
-	describe(args.parse.name, () => {
+	describe(args.toArray.name, () => {
 		it("should be converted", () => {
-			const result = args.parse({
+			const result = args.toArray({
 				"diff-filter": "ACM",
 				cached: true
 			});
@@ -76,7 +76,7 @@ describe("argsSpec", () => {
 
 		describe("given false boolean", () => {
 			it("should be omitted", () => {
-				const result = args.parse({
+				const result = args.toArray({
 					"diff-filter": "ACM",
 					cached: false
 				});
