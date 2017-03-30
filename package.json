@@ -52,7 +52,6 @@
     "jasmine": "^2.5.3",
     "mock-fs": "^4.1.0",
     "tslint": "^4.5.1",
-    "typedoc": "^0.5.9",
     "typescript": "^2.2.1"
   },
   "typings": "dist/index.d.ts"
