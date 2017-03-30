@@ -83,7 +83,7 @@ describe("fileSystemSpec", () => {
 		});
 
 		it("should return the null when package.json doesn't exist", () => {
-			expect(fileSystem.findFileRecursively("package.json", "invalid/path")).toEqual(null);
+			expect(fileSystem.findFileRecursively("package.json", "invalid/path")).toBeUndefined();
 		});
 	});
 
