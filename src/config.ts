@@ -13,7 +13,7 @@ export namespace config {
 	 * @param {string} defaultPath
 	 * @returns {string}
 	 */
-	export function getConfigFilePath(file: string, defaultPath: string): string {
+	export function getConfigFilePath(file: string, defaultLocation: string): string {
 		if (isAbsolute(file)) {
 			return file;
 		}
@@ -24,7 +24,7 @@ export namespace config {
 			return path;
 		}
 
-		return defaultPath;
+		return join(defaultLocation, file);
 	}
 
 	/**
