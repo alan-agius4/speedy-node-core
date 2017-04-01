@@ -47,7 +47,7 @@ export namespace args {
 		_.forEach(value, (val, key) => {
 			if (key === "_" || val === false) {
 				return;
-			};
+			}
 
 			const tranformedKey = `--${key}`;
 
