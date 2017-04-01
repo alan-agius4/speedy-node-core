@@ -1,5 +1,3 @@
-import * as _ from "lodash";
-
 import { args } from "./args";
 
 describe("argsSpec", () => {
