@@ -5,6 +5,7 @@
 	},
 	"include": [
 		"typings/**/*.d.ts",
-		"src/json.ts"
+		"src/index.ts",
+		"src/tasks.ts"
 	]
 }
