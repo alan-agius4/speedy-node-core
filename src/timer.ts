@@ -40,7 +40,9 @@ export class Timer {
 
 	finish() {
 		const duration = Date.now() - this.startTime;
-		const time = duration > 1000 ? `${(duration / 1000).toFixed(2)} s` : `${duration.toFixed(3)} ms`;
+		const time = duration > 1000
+			? `${(duration / 1000).toFixed(2).replace(".00", "")} s`
+			: `${duration.toFixed(0)} ms`;
 
 		this.logger.info(`Finished in ${time}`);
 	}
