@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 
-export namespace packageJson {
+export namespace packageMeta {
 
 	/**
 	 * Get the version number from a `package.json`
