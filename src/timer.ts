@@ -33,9 +33,10 @@ export class Timer {
 		}
 	}
 
-	start() {
+	start(): Timer {
 		this.startTime = Date.now();
 		this.logger.info("Started...");
+		return this;
 	}
 
 	finish() {
