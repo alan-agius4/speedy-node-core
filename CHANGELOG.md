@@ -15,7 +15,7 @@
 
 ### BREAKING CHANGES
 
-* **package meta:** rename rename namespace `packageJson` to `packageMeta`
+* **package meta:** rename namespace `packageJson` to `packageMeta`
 
 
 
