@@ -66,7 +66,7 @@ export namespace args {
 	}
 
 	/**
-	 * Parse Argv and tranform them to a Dictionary.
+	 * Parse Argv and transform them to a Dictionary.
 	 *
 	 * @example
 	 * const argv = ["--diff-filter", "ACM", "--cached"];
