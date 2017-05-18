@@ -27,4 +27,27 @@ export namespace config {
 		return join(defaultLocation, file);
 	}
 
+	/**
+	 * @deprecated use `@speedy/json-extends` instead.
+	 * Retrieve a JSON file. Supports `extends` with one or many existing JSON files.
+	 *
+	 * @template T
+	 * @param {string} filePath
+	 * @returns {Promise<T>}
+	 */
+	export async function readConfigFile<T>(filePath: string): Promise<T> {
+		let config = await fileSystem.readJsonFileAsync<T & { extends?: string | string[] }>(filePath);
+
+		if (_.isEmpty(config.extends)) {
+			return config;
+		}
+
+		const configExtends = _.castArray<string>(config.extends);
+
+		for (const path of configExtends) {
+			config = _.merge({}, await readConfigFile(path), config);
+		}
+
+		return config;
+	}
 }
