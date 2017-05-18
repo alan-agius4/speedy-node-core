@@ -4,7 +4,7 @@
 
 ### Bug Fixes
 
-* **file system:** `glob` shoulnm't throw an error when file or folder doesn't exists ([56d0d62](https://github.com/alan-agius4/speedy-node-core/commit/56d0d62))
+* **file system:** `glob` shouldn't throw an error when file or folder doesn't exists ([56d0d62](https://github.com/alan-agius4/speedy-node-core/commit/56d0d62))
 
 
 
