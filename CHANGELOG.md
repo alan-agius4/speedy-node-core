@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/alan-agius4/speedy-node-core/compare/v1.1.0...v1.1.1) (2017-05-18)
+
+
+### Bug Fixes
+
+* **file system:** `glob` shoulnm't throw an error when file or folder doesn't exists ([56d0d62](https://github.com/alan-agius4/speedy-node-core/commit/56d0d62))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.0.1...v1.1.0) (2017-04-07)
 
