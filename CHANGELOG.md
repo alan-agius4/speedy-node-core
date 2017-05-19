@@ -1,3 +1,13 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/alan-agius4/speedy-node-core/compare/v1.1.1...v1.1.2) (2017-05-19)
+
+
+### Bug Fixes
+
+* **file system:** `glob` error code number on windows is different ([d506e0d](https://github.com/alan-agius4/speedy-node-core/commit/d506e0d))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/alan-agius4/speedy-node-core/compare/v1.1.0...v1.1.1) (2017-05-18)
 
