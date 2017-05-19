@@ -43,7 +43,7 @@ export namespace fileSystem {
 			// https://github.com/jonschlinkert/bash-glob/issues/2#issuecomment-285879264
 			return sync(source, { bashNative: [] });
 		} catch (error) {
-			if (error.errno && error.errno === -FS_CONSTANTS.ENOENT) {
+			if (error.errno === -FS_CONSTANTS.ENOENT) {
 				return [];
 			}
 
