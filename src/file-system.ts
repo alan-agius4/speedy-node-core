@@ -2,7 +2,6 @@ import * as _ from "lodash";
 import * as rimraf from "rimraf";
 import { sync } from "fast-glob";
 import { readFile, statSync } from "fs";
-import * as FS_CONSTANTS from "constants";
 import { join, sep, normalize, resolve } from "path";
 
 export namespace fileSystem {
@@ -43,7 +42,7 @@ export namespace fileSystem {
 			// https://github.com/jonschlinkert/bash-glob/issues/2#issuecomment-285879264
 			return sync(source, { bashNative: [] });
 		} catch (error) {
-			if (error.errno === -FS_CONSTANTS.ENOENT) {
+			if (error.code === "ENOENT") {
 				return [];
 			}
 
