@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.1.2...v1.2.0) (2017-06-05)
+
+
+### Features
+
+* **packages:** bump `fast-glob` ([9997c24](https://github.com/alan-agius4/speedy-node-core/commit/9997c24))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/alan-agius4/speedy-node-core/compare/v1.1.1...v1.1.2) (2017-05-19)
 
