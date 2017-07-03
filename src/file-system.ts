@@ -1,6 +1,6 @@
 import * as _ from "lodash";
 import * as rimraf from "rimraf";
-import { sync } from "fast-glob";
+import { sync } from "glob";
 import { readFile, statSync } from "fs";
 import { join, sep, normalize, resolve } from "path";
 
@@ -36,9 +36,20 @@ export namespace fileSystem {
 		return JSON.parse(await readFileAsync(path));
 	}
 
-	export function glob(source: string | string[]): string[] {
-		return sync(source, { bashNative: [] });
+	export function glob(patterns: string | string[]): string[] {
+		const paths = _.castArray(patterns);
+
+		const ignoredPatterns = _.chain(paths)
+			.filter(x => _.startsWith(x, "!"))
+			.map(x => _.trimStart(x, "!"))
+			.value();
+
+		return _.chain(paths)
+			.filter(x => !_.startsWith(x, "!"))
+			.flatMap(x => sync(x, { ignore: ignoredPatterns }))
+			.value();
 	}
+
 
 	/**
 	 * Find a file recursively in the file system from the starting path upwards.
