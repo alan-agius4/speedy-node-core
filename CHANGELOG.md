@@ -1,3 +1,14 @@
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.2.0...v1.3.0) (2017-07-15)
+
+
+### Features
+
+* **file system:** replace `fast-glob` with `glob` ([da8be4e](https://github.com/alan-agius4/speedy-node-core/commit/da8be4e))
+* **packages:** update `chalk` to `2.x.x` ([6d19b80](https://github.com/alan-agius4/speedy-node-core/commit/6d19b80))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.1.2...v1.2.0) (2017-06-05)
 
