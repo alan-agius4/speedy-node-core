@@ -36,18 +36,18 @@ export namespace config {
 	 * @returns {Promise<T>}
 	 */
 	export async function readConfigFile<T>(filePath: string): Promise<T> {
-		let config = await fileSystem.readJsonFileAsync<T & { extends?: string | string[] }>(filePath);
+		let configData = await fileSystem.readJsonFileAsync<T & { extends?: string | string[] }>(filePath);
 
-		if (_.isEmpty(config.extends)) {
-			return config;
+		if (_.isEmpty(configData.extends)) {
+			return configData;
 		}
 
-		const configExtends = _.castArray<string>(config.extends);
+		const configExtends = _.castArray<string>(configData.extends);
 
 		for (const path of configExtends) {
-			config = _.merge({}, await readConfigFile(path), config);
+			configData = _.merge({}, await readConfigFile(path), configData);
 		}
 
-		return config;
+		return configData;
 	}
 }

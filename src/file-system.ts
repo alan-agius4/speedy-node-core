@@ -9,6 +9,7 @@ export namespace fileSystem {
 	export const getRootPath = _.memoize(() => findFileRecursively() || "");
 
 	export function deleteAsync(path: string): Promise<boolean> {
+		// tslint:disable-next-line:no-shadowed-variable
 		return new Promise((resolve, reject) => {
 			rimraf(path, error => {
 				if (error) {
@@ -21,6 +22,7 @@ export namespace fileSystem {
 	}
 
 	export function readFileAsync(path: string): Promise<string> {
+		// tslint:disable-next-line:no-shadowed-variable
 		return new Promise((resolve, reject) => {
 			readFile(path, "utf-8", (error, data) => {
 				if (error) {

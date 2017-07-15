@@ -43,7 +43,7 @@ export namespace args {
 	 * @returns {string[]} converted parameter as args.
 	 */
 	export function toArray(value: Dictionary<any>): string[] {
-		const args: string[] = [];
+		const argItems: string[] = [];
 
 		_.forEach(value, (val, key) => {
 			if (key === "_" || val === false) {
@@ -53,17 +53,17 @@ export namespace args {
 			const tranformedKey = `--${key}`;
 
 			if (_.isArray(val)) {
-				args.push(tranformedKey, ..._.flatten(val).map(_.toString));
+				argItems.push(tranformedKey, ..._.flatten(val).map(_.toString));
 				return;
 			} else if (val === true) {
-				args.push(tranformedKey);
+				argItems.push(tranformedKey);
 				return;
 			}
 
-			args.push(tranformedKey, _.toString(val));
+			argItems.push(tranformedKey, _.toString(val));
 		});
 
-		return args;
+		return argItems;
 	}
 
 	/**
