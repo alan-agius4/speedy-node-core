@@ -1,6 +1,6 @@
 {
   "name": "@speedy/node-core",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Node core functions and utils.",
   "main": "./dist/index.js",
   "repository": {
