@@ -21,7 +21,7 @@ export namespace args {
 		// todo: disable strictNullChecks until https://github.com/Microsoft/TypeScript/issues/16902 is solved
 		const parsedConfigArgv = parse(JSON.parse(process.env.npm_config_argv!).cooked);
 		const mergedArgv = { ...parsedArgv, ...parsedConfigArgv };
-		const tranformedArgs = _.flatten(_.get<string[]>(parsedArgv, "_"));
+		const tranformedArgs = _.flatten<string>(_.get(parsedArgv, "_"));
 		return [...tranformedArgs, ...toArray(mergedArgv)];
 	}
 

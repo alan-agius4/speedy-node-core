@@ -1,4 +1,4 @@
-import { cyan, red, yellow, green, gray, white } from "chalk";
+import chalk from "chalk";
 import { padStart } from "lodash";
 
 const padTimeUnit = (unit: number) => padStart(unit.toString(), 2, "0");
@@ -11,7 +11,7 @@ export class Logger {
 	}
 
 	info(message: string) {
-		console.info(white(this.formatMessage(message)));
+		console.info(chalk.white(this.formatMessage(message)));
 	}
 
 	/**
@@ -28,22 +28,22 @@ export class Logger {
 			return;
 		}
 
-		console.log(green(this.formatMessage(message, method)));
+		console.log(chalk.green(this.formatMessage(message, method)));
 	}
 
 	warn(message: string) {
-		console.warn(yellow(this.formatMessage(message)));
+		console.warn(chalk.yellow(this.formatMessage(message)));
 	}
 
 	error(message?: string, error?: Error) {
-		console.error(red(this.formatMessage(this.formatErrorMessage(message, error))));
+		console.error(chalk.red(this.formatMessage(this.formatErrorMessage(message, error))));
 	}
 
 	private formatMessage(message: string, method?: string): string {
 		const date = new Date();
-		const time = gray(`${padTimeUnit(date.getHours())}:${padTimeUnit(date.getMinutes())}:${padTimeUnit(date.getSeconds())}`);
+		const time = chalk.gray(`${padTimeUnit(date.getHours())}:${padTimeUnit(date.getMinutes())}:${padTimeUnit(date.getSeconds())}`);
 
-		return `${white(`[${time}]`)} ${cyan(`${this.scope}:`)}${method ? ` ${method}` : ""} ${message}`;
+		return `${chalk.white(`[${time}]`)} ${chalk.cyan(`${this.scope}:`)}${method ? ` ${method}` : ""} ${message}`;
 	}
 
 	private formatErrorMessage(message?: string, error?: Error): string {
