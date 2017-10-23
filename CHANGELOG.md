@@ -1,3 +1,13 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.3.0...v1.4.0) (2017-10-23)
+
+
+### Features
+
+* **packages:** update `chalk` to the latest version ([e8108e4](https://github.com/alan-agius4/speedy-node-core/commit/e8108e4))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.2.0...v1.3.0) (2017-07-15)
 
