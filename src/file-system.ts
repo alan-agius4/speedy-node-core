@@ -1,3 +1,4 @@
+import { copy } from "cpx";
 import * as _ from "lodash";
 import * as rimraf from "rimraf";
 import { sync } from "glob";
@@ -6,7 +7,7 @@ import { join, sep, normalize, resolve } from "path";
 
 export namespace fileSystem {
 
-	export const getRootPath = _.memoize(() => findFileRecursively() || "");
+	export const getRootPath = _.once(() => findFileRecursively() || "");
 
 	export function deleteAsync(path: string): Promise<boolean> {
 		// tslint:disable-next-line:no-shadowed-variable
@@ -91,6 +92,23 @@ export namespace fileSystem {
 	 */
 	export function getCanonicalPath(path: string): string {
 		return resolve(process.cwd(), path);
+	}
+
+	/**
+	 * Copy an array of file globs
+	 * @param source The glob of target files
+	 * @param destination The path of a destination directory
+	 */
+	export function copyAsync(source: string | string[], destination: string): Promise<void[]> {
+		return Promise.all(
+			_.chain(source)
+				.castArray()
+				.map(x =>
+					new Promise<void>((resolve, reject) => {
+						copy(x, destination, (error: Error | null) => error ? reject(error) : resolve());
+					}))
+				.value()
+		);
 	}
 
 }
