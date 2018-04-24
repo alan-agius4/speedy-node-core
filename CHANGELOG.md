@@ -1,3 +1,13 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.4.0...v1.5.0) (2018-04-24)
+
+
+### Features
+
+* **file system:** add `copyAsync` method ([c50146b](https://github.com/alan-agius4/speedy-node-core/commit/c50146b))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/alan-agius4/speedy-node-core/compare/v1.3.0...v1.4.0) (2017-10-23)
 
